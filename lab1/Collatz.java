@@ -1,4 +1,4 @@
-public class Callotz {
+public class Collatz {
     public static void main(String[] args) {
         if (args.length < 1) {
             return;
