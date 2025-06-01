@@ -1,9 +1,6 @@
 public class Collatz {
     public static void main(String[] args) {
-        if (args.length < 1) {
-            return;
-        }
-        int n = Integer.valueOf(args[0]).intValue();
+        int n = 5;
         System.out.print(n + " ");
         while (n != 1) {
             n = getNextNumber(n);
