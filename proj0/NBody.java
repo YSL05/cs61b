@@ -68,17 +68,23 @@ public class NBody {
         double time = 0;
         double xforce = 0;
         double yforce = 0;
-        double timestamp = 10000;
-        for (; time < T; time += 10) {
+        for (; time < T; time += dt) {
             drawBackground(radius);
             for (int i = 0; i < allPlanets.length; i++) {
                 xforce = allPlanets[i].calcNetForceExertedByX(allPlanets);
                 yforce = allPlanets[i].calcNetForceExertedByY(allPlanets);
-                allPlanets[i].update(timestamp, xforce, yforce);
+                allPlanets[i].update(dt, xforce, yforce);
                 allPlanets[i].draw();
             }
             StdDraw.show();
             StdDraw.pause(10);
+        }
+        StdOut.printf("%d\n", allPlanets.length);
+        StdOut.printf("%.2e\n", radius);
+        for (int i = 0; i < allPlanets.length; i++) {
+            StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
+                          allPlanets[i].xxPos, allPlanets[i].yyPos, allPlanets[i].xxVel,
+                          allPlanets[i].yyVel, allPlanets[i].mass, allPlanets[i].imgFileName);
         }
     }
 }
