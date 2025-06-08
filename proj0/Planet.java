@@ -3,9 +3,9 @@ public class Planet {
     public double yyPos;
     public double xxVel;
     public double yyVel;
-    double mass;
-    String imgFileName;
-    static double gravitationalConst = 6.67e-11;
+    private double mass;
+    private String imgFileName;
+    private static double gravitationalConst = 6.67e-11;
     public Planet(double xP, double yP, double xV,
                   double yV, double m, String img)
     {
@@ -91,5 +91,5 @@ public class Planet {
         StdDraw.picture(this.xxPos, this.yyPos, "./images/" + this.imgFileName);
     }
 
-    
+
 }
