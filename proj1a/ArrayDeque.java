@@ -1,4 +1,4 @@
-import java.lang.reflect.Array;
+
 
 public class ArrayDeque<T> {
     
@@ -6,83 +6,69 @@ public class ArrayDeque<T> {
     private T   initvalue     = null;
     private int size          = 0;
     private int totalSize     = initArraySize;
-    private int ListFirst     = 0;
-    private int ListLast      = 0;
-    private T[] ArrayList;
+    private int listFirst     = 0;
+    private int listLast      = 0;
+    private T[] arrayList;
 
-    public ArrayDeque(T num)
-    {
-        ArrayList = (T[]) new Object[initArraySize];
-        ArrayList[size] = num;
-        size += 1; 
-    }
-
-    public ArrayDeque()
-    {
-        ArrayList = (T[]) new Object[initArraySize];
+    public ArrayDeque() {
+        arrayList = (T[]) new Object[initArraySize];
         this.size = 0;
     }
     
-    private int modeMins(int index)
-    {
+    private int modeMins(int index) {
         if (index - 1 < 0) {
             return totalSize - 1;
         }
         return index - 1;
     }
 
-    private int modeAdd(int index)
-    {
+    private int modeAdd(int index) {
         if (index + 1 == totalSize) {
             return 0;
         }
         return index + 1;
     }
 
-    private void resizeArrayList()
-    {
+    private void resizeArrayList() {
         initArraySize = initArraySize * 2;
         T[] tempArray = (T[])new Object[initArraySize];
         for (int i = 0; i < totalSize; i++) {
-            tempArray[i] = ArrayList[i];
+            tempArray[i] = arrayList[i];
         }
-        ListFirst = 0;
-        ListLast  = totalSize - 1;
-        ArrayList = tempArray;
+        listFirst = 0;
+        listLast  = totalSize - 1;
+        arrayList = tempArray;
     }
 
-    public void addFirst(T num)
-    {
+    public void addFirst(T num) {
         if (isEmpty()) {
-            ArrayList[this.ListFirst] = num;
+            arrayList[this.listFirst] = num;
             this.size += 1;
             return;
         }
         if (size == totalSize) {
             resizeArrayList();
         }
-        this.ListFirst = modeMins(this.ListFirst);
-        ArrayList[this.ListFirst] = num;
+        this.listFirst = modeMins(this.listFirst);
+        arrayList[this.listFirst] = num;
         this.size += 1;
     }
 
-    public void addLast(T num)
-    {
+    public void addLast(T num) {
         if (isEmpty()) {
-            ArrayList[this.ListLast] = num;
+            arrayList[this.listLast] = num;
             this.size += 1;
             return;
         }
         if (size == totalSize) {
             resizeArrayList();
         }
-        this.ListLast = modeAdd(this.ListLast);
-        ArrayList[this.ListLast] = num;
+        this.listLast = modeAdd(this.listLast);
+        arrayList[this.listLast] = num;
         this.size += 1;
     }
 
-    public boolean isEmpty()
-    {
+    public boolean isEmpty() {
         if (this.size == 0) {
             return true;
         } else {
@@ -90,55 +76,50 @@ public class ArrayDeque<T> {
         }
     }
 
-    public int size()
-    {
+    public int size() {
         return this.size;
     }
 
-    public void printDeque()
-    {
+    public void printDeque() {
         for (int i = 0; i < this.size; i++) {   
-            System.out.print(this.ArrayList[i]);
+            System.out.print(this.arrayList[i]);
             System.out.print(' ');
         }
     }
 
-    public T removeFirst()
-    {
+    public T removeFirst() {
         if (isEmpty()) {
             return null;
         }
-        T temp = ArrayList[ListFirst];
+        T temp = arrayList[listFirst];
         if (size > 1) {
-            ListFirst = modeAdd(ListFirst);
+            listFirst = modeAdd(listFirst);
         }
         size -= 1;
         return temp;
     }
 
-    public T removeLast()
-    {
+    public T removeLast() {
         if (isEmpty()) {
             return null;
         }
-        T temp = ArrayList[ListLast];
+        T temp = arrayList[listLast];
         if (size > 1) {
-            ListLast = modeMins(ListLast);
+            listLast = modeMins(listLast);
         }
         this.size -= 1;
         return temp;
     }
 
-    public T get(int index)
-    {
+    public T get(int index) {
         if (index > this.size) {
             return null;
         }
-        if (ListFirst + index >= totalSize) {
-            index = ListFirst + index - totalSize;
+        if (listFirst + index >= totalSize) {
+            index = listFirst + index - totalSize;
         } else {
-            index = index + ListFirst;
+            index = index + listFirst;
         }
-        return ArrayList[index];
+        return arrayList[index];
     }
 }
