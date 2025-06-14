@@ -111,6 +111,6 @@ public class LinkedListDeque<T> {
         if (isEmpty()) {
             return null;
         }
-        return getRecursive(index, LinkedList.front);
+        return getRecursive(index, linkedList.front);
     }
 }
