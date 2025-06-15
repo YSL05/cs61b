@@ -94,14 +94,48 @@ public class ArrayDequeTest {
 		lld1.addLast(6);
 		lld1.addLast(7);
 		lld1.addLast(8);
-		int temp = lld1.get(8);
-		boolean passed = checkSize(8, temp);
+		int temp = lld1.removeFirst();
+		boolean passed = checkSize(0, temp);
+		lld1.addLast(9);
+		temp = lld1.removeFirst();
+		passed = checkSize(1, temp) && passed;	
+		lld1.addLast(10);
+		lld1.addLast(11);
+		temp = lld1.removeFirst();
+		passed = checkSize(2, temp) && passed;	
 		printTestStatus(passed);
 	}
+
+	public static void addFirstRemoveLastTest()
+	{
+		System.out.println("Running addFirstRemoveLastTest test.");
+		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+		lld1.addFirst(0);
+		lld1.addFirst(1);
+		lld1.addFirst(2);
+		lld1.addFirst(3);
+		lld1.addFirst(4);
+		lld1.addFirst(5);
+		lld1.addFirst(6);
+		lld1.addFirst(7);
+		lld1.addFirst(8);
+		int temp = lld1.removeLast();
+		boolean passed = checkSize(0, temp);
+		lld1.addFirst(9);
+		temp = lld1.removeLast();
+		passed = checkSize(1, temp) && passed;	
+		lld1.addFirst(10);
+		lld1.addFirst(11);
+		temp = lld1.removeLast();
+		passed = checkSize(2, temp) && passed;	
+		printTestStatus(passed);
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
 		addIsEmptySizeTest();
 		addRemoveTest();
 		addGetTest();
+		addFirstRemoveLastTest();
 	}
 } 
