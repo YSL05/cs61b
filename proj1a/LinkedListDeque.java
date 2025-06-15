@@ -3,9 +3,9 @@
 public class LinkedListDeque<T> {
     
     private class ListNode {
-        public T item;
-        public ListNode front;
-        public ListNode next;
+        private T item;
+        private ListNode front;
+        private ListNode next;
 
         public ListNode(T num) {
             this.item  = num;
@@ -16,7 +16,7 @@ public class LinkedListDeque<T> {
     private T initValue = null;
     private ListNode linkedList;
     private int size = 0;
-    public LinkedListDeque () {
+    public LinkedListDeque() {
         linkedList = new ListNode(initValue);
         linkedList.front = linkedList;
         linkedList.next  = linkedList;
@@ -83,7 +83,7 @@ public class LinkedListDeque<T> {
         return tempNode.item;
     }
 
-    public T get (int index) {
+    public T get(int index) {
         if (isEmpty()) {
             return null;
         }

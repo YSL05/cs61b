@@ -81,8 +81,7 @@ public class LinkedListDequeTest {
 		
 	}
 
-	public static void randomOperTest1()
-	{
+	public static void randomOperTest1() {
 		System.out.println("Running randomOperTest1 .");
 		
 		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();

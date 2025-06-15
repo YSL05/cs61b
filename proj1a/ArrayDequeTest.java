@@ -1,6 +1,6 @@
 /** Performs some basic linked list tests. */
 public class ArrayDequeTest {
-	
+
 	/* Utility method for printing out empty checks. */
 	public static boolean checkEmpty(boolean expected, boolean actual) {
 		if (expected != actual) {
@@ -81,8 +81,7 @@ public class ArrayDequeTest {
 		
 	}
 
-	public static void addGetTest()
-	{
+	public static void addGetTest() {
 		System.out.println("Running add/get test.");
 		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
 		lld1.addLast(0);
@@ -106,8 +105,7 @@ public class ArrayDequeTest {
 		printTestStatus(passed);
 	}
 
-	public static void addFirstRemoveLastTest()
-	{
+	public static void addFirstRemoveLastTest() {
 		System.out.println("Running addFirstRemoveLastTest test.");
 		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
 		lld1.addFirst(0);
@@ -131,8 +129,7 @@ public class ArrayDequeTest {
 		printTestStatus(passed);
 	}
 
-	public static void addFirstRemoveLastReTest()
-	{
+	public static void addFirstRemoveLastReTest() {
 		System.out.println("Running addFirstRemoveLastReTest test.");
 		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
 		for (int i = 0; i < 96; i++) {
@@ -147,8 +144,7 @@ public class ArrayDequeTest {
 		printTestStatus(passed);
 	}
 
-	public static void addLastRemoveFirstReTest()
-	{
+	public static void addLastRemoveFirstReTest() {
 		System.out.println("Running addLastRemoveFirstReTest test.");
 		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
 		for (int i = 0; i < 96; i++) {
@@ -163,11 +159,10 @@ public class ArrayDequeTest {
 		printTestStatus(passed);
 	}
 
-	public static void FillupEmptyTest()
-	{
-		System.out.println("Running FillupEmptyTest test.");
-		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
-		for (int i = 0; i < 35; i++) {
+	public static void fillupEmptyTest() {
+        System.out.println("Running FillupEmptyTest test.");
+        ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+        for (int i = 0; i < 35; i++) {
 			lld1.addLast(i);
 		}
 
@@ -179,8 +174,7 @@ public class ArrayDequeTest {
 		printTestStatus(passed);
 	}
 
-	public static void FillupEmptyAgainTest()
-	{
+	public static void fillupEmptyAgainTest() {
 		System.out.println("Running FillupEmptyAgainTest test.");
 		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
 		for (int i = 0; i < 20; i++) {
@@ -207,7 +201,7 @@ public class ArrayDequeTest {
 		addFirstRemoveLastTest();
 		addFirstRemoveLastReTest();
 		addLastRemoveFirstReTest();
-		FillupEmptyTest();
-		FillupEmptyAgainTest();
+		fillupEmptyTest();
+		fillupEmptyAgainTest();
 	}
 } 

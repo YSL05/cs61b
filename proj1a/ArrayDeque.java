@@ -30,12 +30,13 @@ public class ArrayDeque<T> {
 
     private void resizeArrayListBig() {
         totalSize = totalSize * 2;
-        T[] tempArray = (T[])new Object[totalSize];
+        T[] tempArray = (T[]) new Object[totalSize];
         if (listFirst < listLast) {
             System.arraycopy(arrayList, listFirst, tempArray, listFirst, totalSize / 2);
         } else {
             System.arraycopy(arrayList, 0, tempArray, 0, listLast + 1);
-            System.arraycopy(arrayList, listFirst, tempArray, listFirst + totalSize / 2, totalSize / 2 - listFirst);
+            System.arraycopy(arrayList, listFirst, tempArray, listFirst + totalSize / 2,
+                             totalSize / 2 - listFirst);
             listFirst += totalSize / 2;
         }
         arrayList = tempArray;
@@ -43,14 +44,15 @@ public class ArrayDeque<T> {
 
     private void resizeArrayListSmall() {
         totalSize = totalSize / 2;
-        T[] tempArray = (T[])new Object[totalSize];
+        T[] tempArray = (T[]) new Object[totalSize];
         if (listFirst < listLast) {
             System.arraycopy(arrayList, listFirst, tempArray, 0, listLast - listFirst + 1);
             listLast  = listLast - listFirst;
             listFirst = 0;
         } else {
             System.arraycopy(arrayList, 0, tempArray, 0, listLast + 1);
-            System.arraycopy(arrayList, listFirst, tempArray, listFirst - totalSize, totalSize * 2 - listFirst);
+            System.arraycopy(arrayList, listFirst, tempArray, listFirst - totalSize,
+                             totalSize * 2 - listFirst);
             listFirst -= totalSize;
         }
         arrayList = tempArray;
