@@ -147,7 +147,7 @@ public class ArrayDequeTest {
 		printTestStatus(passed);
 	}
 
-		public static void addLastRemoveFirstReTest()
+	public static void addLastRemoveFirstReTest()
 	{
 		System.out.println("Running addLastRemoveFirstReTest test.");
 		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
@@ -163,6 +163,42 @@ public class ArrayDequeTest {
 		printTestStatus(passed);
 	}
 
+	public static void FillupEmptyTest()
+	{
+		System.out.println("Running FillupEmptyTest test.");
+		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+		for (int i = 0; i < 35; i++) {
+			lld1.addLast(i);
+		}
+
+		for (int i = 0; i < 33; i++) {
+			lld1.removeFirst();
+		}
+		int temp = lld1.removeFirst();
+		boolean passed = checkSize(33, temp);
+		printTestStatus(passed);
+	}
+
+	public static void FillupEmptyAgainTest()
+	{
+		System.out.println("Running FillupEmptyAgainTest test.");
+		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+		for (int i = 0; i < 20; i++) {
+			lld1.addFirst(i);
+		}
+
+		for (int i = 0; i < 20; i++) {
+			lld1.addLast(i);
+		}
+
+		for (int i = 0; i < 10; i++) {
+			lld1.removeLast();
+		}
+		int temp = lld1.removeFirst();
+		boolean passed = checkSize(19, temp);
+		printTestStatus(passed);
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
 		addIsEmptySizeTest();
@@ -171,5 +207,7 @@ public class ArrayDequeTest {
 		addFirstRemoveLastTest();
 		addFirstRemoveLastReTest();
 		addLastRemoveFirstReTest();
+		FillupEmptyTest();
+		FillupEmptyAgainTest();
 	}
 } 

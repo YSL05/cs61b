@@ -51,10 +51,7 @@ public class ArrayDeque<T> {
         } else {
             System.arraycopy(arrayList, 0, tempArray, 0, listLast + 1);
             System.arraycopy(arrayList, listFirst, tempArray, listFirst - totalSize, totalSize * 2 - listFirst);
-            if (listLast > totalSize) {
-                listFirst -= totalSize;
-                listLast  -= totalSize;
-            }
+            listFirst -= totalSize;
         }
         arrayList = tempArray;
     }
