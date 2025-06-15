@@ -1,5 +1,3 @@
-
-
 public class ArrayDeque<T> {
     
     private int initArraySize = 8;
