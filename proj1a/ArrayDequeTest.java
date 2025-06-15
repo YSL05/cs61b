@@ -81,9 +81,27 @@ public class ArrayDequeTest {
 		
 	}
 
+	public static void addGetTest()
+	{
+		System.out.println("Running add/get test.");
+		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+		lld1.addLast(0);
+		lld1.addLast(1);
+		lld1.addLast(2);
+		lld1.addLast(3);
+		lld1.addLast(4);
+		lld1.addLast(5);
+		lld1.addLast(6);
+		lld1.addLast(7);
+		lld1.addLast(8);
+		int temp = lld1.get(8);
+		boolean passed = checkSize(8, temp);
+		printTestStatus(passed);
+	}
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
 		addIsEmptySizeTest();
 		addRemoveTest();
+		addGetTest();
 	}
 } 

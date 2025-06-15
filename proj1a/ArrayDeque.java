@@ -3,8 +3,7 @@
 public class ArrayDeque<T> {
     
     private int initArraySize = 8;
-    private T   initvalue     = null;
-    private int size          = 0;
+    private int size;
     private int totalSize     = initArraySize;
     private int listFirst     = 0;
     private int listLast      = 0;
@@ -30,13 +29,11 @@ public class ArrayDeque<T> {
     }
 
     private void resizeArrayList() {
-        initArraySize = initArraySize * 2;
-        T[] tempArray = (T[])new Object[initArraySize];
-        for (int i = 0; i < totalSize; i++) {
-            tempArray[i] = arrayList[i];
-        }
+        totalSize = totalSize * 2;
+        T[] tempArray = (T[])new Object[totalSize];
+        System.arraycopy(arrayList, 0, tempArray, 0, totalSize / 2);
         listFirst = 0;
-        listLast  = totalSize - 1;
+        listLast  = totalSize / 2 - 1;
         arrayList = tempArray;
     }
 
@@ -69,11 +66,7 @@ public class ArrayDeque<T> {
     }
 
     public boolean isEmpty() {
-        if (this.size == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.size == 0;
     }
 
     public int size() {
@@ -112,7 +105,7 @@ public class ArrayDeque<T> {
     }
 
     public T get(int index) {
-        if (index > this.size) {
+        if (index >= this.size) {
             return null;
         }
         if (listFirst + index >= totalSize) {
