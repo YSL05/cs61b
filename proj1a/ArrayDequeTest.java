@@ -85,11 +85,11 @@ public class ArrayDequeTest {
         boolean passed = checkSize(0, temp);
         lld1.addLast(9);
         temp = lld1.removeFirst();
-        passed = checkSize(1, temp) && passed;	
+        passed = checkSize(1, temp) && passed;
         lld1.addLast(10);
         lld1.addLast(11);
         temp = lld1.removeFirst();
-        passed = checkSize(2, temp) && passed;	
+        passed = checkSize(2, temp) && passed;
         printTestStatus(passed);
     }    
     public static void addFirstRemoveLastTest() {
@@ -108,11 +108,11 @@ public class ArrayDequeTest {
         boolean passed = checkSize(0, temp);
         lld1.addFirst(9);
         temp = lld1.removeLast();
-        passed = checkSize(1, temp) && passed;	
+        passed = checkSize(1, temp) && passed;
         lld1.addFirst(10);
         lld1.addFirst(11);
         temp = lld1.removeLast();
-        passed = checkSize(2, temp) && passed;	
+        passed = checkSize(2, temp) && passed;
         printTestStatus(passed);
     }    
     public static void addFirstRemoveLastReTest() {
@@ -125,7 +125,7 @@ public class ArrayDequeTest {
             lld1.removeLast();
         }
         int temp = lld1.removeLast();
-        boolean passed = checkSize(64, temp);	
+        boolean passed = checkSize(64, temp);
         printTestStatus(passed);
     }    
     public static void addLastRemoveFirstReTest() {
@@ -138,7 +138,7 @@ public class ArrayDequeTest {
             lld1.removeFirst();
         }
         int temp = lld1.removeFirst();
-        boolean passed = checkSize(64, temp);	
+        boolean passed = checkSize(64, temp);
         printTestStatus(passed);
     }    
     public static void fillupEmptyTest() {
