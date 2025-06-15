@@ -131,11 +131,45 @@ public class ArrayDequeTest {
 		printTestStatus(passed);
 	}
 
+	public static void addFirstRemoveLastReTest()
+	{
+		System.out.println("Running addFirstRemoveLastReTest test.");
+		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+		for (int i = 0; i < 96; i++) {
+			lld1.addFirst(i);
+		}
+
+		for (int i = 0; i < 64; i++) {
+			lld1.removeLast();
+		}
+		int temp = lld1.removeLast();
+		boolean passed = checkSize(64, temp);	
+		printTestStatus(passed);
+	}
+
+		public static void addLastRemoveFirstReTest()
+	{
+		System.out.println("Running addLastRemoveFirstReTest test.");
+		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+		for (int i = 0; i < 96; i++) {
+			lld1.addLast(i);
+		}
+
+		for (int i = 0; i < 64; i++) {
+			lld1.removeFirst();
+		}
+		int temp = lld1.removeFirst();
+		boolean passed = checkSize(64, temp);	
+		printTestStatus(passed);
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
 		addIsEmptySizeTest();
 		addRemoveTest();
 		addGetTest();
 		addFirstRemoveLastTest();
+		addFirstRemoveLastReTest();
+		addLastRemoveFirstReTest();
 	}
 } 

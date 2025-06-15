@@ -28,7 +28,7 @@ public class ArrayDeque<T> {
         return index + 1;
     }
 
-    private void resizeArrayList() {
+    private void resizeArrayListBig() {
         totalSize = totalSize * 2;
         T[] tempArray = (T[])new Object[totalSize];
         if (listFirst < listLast) {
@@ -41,6 +41,24 @@ public class ArrayDeque<T> {
         arrayList = tempArray;
     }
 
+    private void resizeArrayListSmall() {
+        totalSize = totalSize / 2;
+        T[] tempArray = (T[])new Object[totalSize];
+        if (listFirst < listLast) {
+            System.arraycopy(arrayList, listFirst, tempArray, 0, listLast - listFirst + 1);
+            listLast  = listLast - listFirst;
+            listFirst = 0;
+        } else {
+            System.arraycopy(arrayList, 0, tempArray, 0, listLast + 1);
+            System.arraycopy(arrayList, listFirst, tempArray, listFirst - totalSize, totalSize * 2 - listFirst);
+            if (listLast > totalSize) {
+                listFirst -= totalSize;
+                listLast  -= totalSize;
+            }
+        }
+        arrayList = tempArray;
+    }
+
     public void addFirst(T num) {
         if (isEmpty()) {
             arrayList[this.listFirst] = num;
@@ -48,7 +66,7 @@ public class ArrayDeque<T> {
             return;
         }
         if (size == totalSize) {
-            resizeArrayList();
+            resizeArrayListBig();
         }
         this.listFirst = modeMins(this.listFirst);
         arrayList[this.listFirst] = num;
@@ -62,7 +80,7 @@ public class ArrayDeque<T> {
             return;
         }
         if (size == totalSize) {
-            resizeArrayList();
+            resizeArrayListBig();
         }
         this.listLast = modeAdd(this.listLast);
         arrayList[this.listLast] = num;
@@ -88,6 +106,9 @@ public class ArrayDeque<T> {
         if (isEmpty()) {
             return null;
         }
+        if (size < totalSize / 2 && totalSize > 16) {
+            resizeArrayListSmall();
+        }
         T temp = arrayList[listFirst];
         if (size > 1) {
             listFirst = modeAdd(listFirst);
@@ -99,6 +120,9 @@ public class ArrayDeque<T> {
     public T removeLast() {
         if (isEmpty()) {
             return null;
+        }
+        if (size < totalSize / 2 && totalSize > 16) {
+            resizeArrayListSmall();
         }
         T temp = arrayList[listLast];
         if (size > 1) {
