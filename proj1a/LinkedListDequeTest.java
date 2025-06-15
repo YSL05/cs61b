@@ -1,6 +1,6 @@
 /** Performs some basic linked list tests. */
 public class LinkedListDequeTest {
-	
+
     /* Utility method for printing out empty checks. */
     public static boolean checkEmpty(boolean expected, boolean actual) {
         if (expected != actual) {
@@ -20,7 +20,7 @@ public class LinkedListDequeTest {
     }
 
     /* Prints a nice message based on whether a test passed. 
-	 * The \n means newline. */
+     * The \n means newline. */
     public static void printTestStatus(boolean passed) {
         if (passed) {
             System.out.println("Test passed!\n");
@@ -38,7 +38,7 @@ public class LinkedListDequeTest {
         
         LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
 
-		boolean passed = checkEmpty(true, lld1.isEmpty());
+        boolean passed = checkEmpty(true, lld1.isEmpty());
 
         lld1.addFirst("front");
 
@@ -89,8 +89,8 @@ public class LinkedListDequeTest {
         lld1.removeLast();
         lld1.removeLast();
         // should be empty 
-        passed = checkEmpty(true, lld1.isEmpty()) && passed;        
-        printTestStatus(passed);		
+        passed = checkEmpty(true, lld1.isEmpty()) && passed;
+        printTestStatus(passed);
     }
     public static void main(String[] args) {
         System.out.println("Running tests.\n");
